@@ -1,0 +1,19 @@
+// https://www.typescriptlang.org/tsconfig
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es5",
+    "outDir": "dist",
+    "baseUrl": "."
+  },
+  "exclude": ["**/*.test.ts"],
+  "include": ["src/**/*.ts"]
+}

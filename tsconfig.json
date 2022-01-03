@@ -1,5 +1,8 @@
 // https://www.typescriptlang.org/tsconfig
 {
+  "ts-node": {
+    "files": true
+  },
   "compilerOptions": {
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

@@ -17,21 +17,19 @@ module.exports = {
     'plugin:regexp/recommended', // regexp
     'plugin:security/recommended', // security
     'plugin:unicorn/recommended', // unicorn
-    'prettier', // prettier
+    'prettier',
   ],
   overrides: [
     {
-      files: ['**/*.test.ts'],
-      extends: [
-        'plugin:jest/recommended', // jest
-      ],
       env: {
         jest: true,
       },
+      extends: ['plugin:jest/recommended'],
+      files: ['**/*.test.ts'],
       plugins: ['jest'],
     },
     {
-      files: ['.eslintrc.js', 'babel.config.js', '.prettierrc.js'],
+      files: ['.eslintrc.js', '.prettierrc.js', 'babel.config.js'],
       rules: {
         'unicorn/prefer-module': 'off',
       },
@@ -39,9 +37,9 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    tsconfigRootDir: './',
     ecmaVersion: 'latest',
     sourceType: 'module',
+    tsconfigRootDir: './',
   },
   plugins: [
     '@typescript-eslint',
@@ -56,32 +54,28 @@ module.exports = {
   ],
   root: true,
   rules: {
-    'prefer-arrow/prefer-arrow-functions': [
-      'warn',
-      {
-        disallowPrototype: true,
-        singleReturnOnly: false,
-        classPropertiesAllowed: false,
-        allowStandaloneDeclarations: false,
-      },
-    ],
     '@typescript-eslint/explicit-function-return-type': 'warn',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        args: 'after-used',
-        ignoreRestSiblings: false,
-        vars: 'all',
-      },
-    ],
-    eqeqeq: ['error', 'smart'],
-    indent: ['error', 2],
+    '@typescript-eslint/no-unused-vars': 'off',
     'linebreak-style': ['error', 'unix'],
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-empty': 'warn',
     'no-undef': 'off',
     'no-unused-vars': 'off',
+    'prefer-arrow/prefer-arrow-functions': [
+      'warn',
+      {
+        allowStandaloneDeclarations: false,
+        classPropertiesAllowed: false,
+        disallowPrototype: true,
+        singleReturnOnly: false,
+      },
+    ],
     'prefer-const': ['error'],
+    'security/detect-non-literal-fs-filename': 'off',
+    'security/detect-unsafe-regex': 'off',
+    'unicorn/prefer-node-protocol': 'off',
+    eqeqeq: ['error', 'smart'],
+    indent: ['error', 2],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
   },

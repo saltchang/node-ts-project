@@ -4,11 +4,13 @@
   "description": "A project example for Node.js and TypeScript.",
   "author": "saltchang <me@saltchang.com>",
   "private": true,
+  "type": "module",
+  "exports": "./index.js",
   "engines": {
     "node": ">=17"
   },
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon --watch './**/*.ts' --exec 'node --experimental-specifier-resolution=node --loader ts-node/esm' src/index.ts",
     "test": "jest",
     "build": "tsc -p tsconfig.build.json",
     "serve": "tsc && node dist/index.js",
@@ -25,7 +27,7 @@
     "@types/node": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
-    "eslint": "^8.5.0",
+    "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -41,10 +43,10 @@
     "jest": "^27.4.5",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
-    "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
+    "ts-node": "^10.4.0"
   }
 }
